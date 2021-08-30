@@ -1,0 +1,4 @@
+[flake8]
+ignore = ANN101, W503
+max-line-length = 88
+exclude = .venv, __pycache__, .py_cache, . ipynb_checkpoints, auto_optional.egg-info, tasks.py
