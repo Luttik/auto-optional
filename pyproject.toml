@@ -4,13 +4,33 @@ version = "0.1.0"
 description = "Makes typed arguments Optional when the default argument is None"
 authors = ["Luttik <dtluttik@gmail.com>"]
 
+
+[tool.poetry.scripts]
+auto-optional = "auto_optional.main:app"
+
 [tool.poetry.dependencies]
-python = ">3.7"
+python = ">3.7, <4.0"
 libcst = "^0.3.20"
 typer = "^0.4.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.4"
+black = "^21.8b0"
+isort = "^5.9.3"
+invoke = "^1.6.0"
+mypy = "^0.910"
+flake8 = "^3.9.2"
+flake8-annotations = "^2.6.2"
+flake8-black = "^0.2.3"
+flake8-isort = "^4.0.0"
+pytest-cov = "^2.12.1"
+
+[tool.coverage.paths]
+source = ["src", "*/site-packages"]
+
+[tool.coverage.run]
+branch = true
+source = ["auto_optional"]
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
