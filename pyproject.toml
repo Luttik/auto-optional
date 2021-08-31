@@ -3,7 +3,8 @@ name = "auto-optional"
 version = "0.1.0"
 description = "Makes typed arguments Optional when the default argument is None"
 authors = ["Luttik <dtluttik@gmail.com>"]
-
+readme = "README.md"
+repository = "https://github.com/Luttik/auto-optional"
 
 [tool.poetry.scripts]
 auto-optional = "auto_optional.main:app"
