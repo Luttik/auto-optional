@@ -4,6 +4,9 @@
 [![pypi](https://badge.fury.io/py/auto-optional.svg)](
     https://pypi.org/project/auto-optional/
 )
+[![python versions](https://shields.io/pypi/pyversions/auto-optional)](
+https://pypi.org/project/auto-optional/
+)
 [![codecov](https://codecov.io/gh/Luttik/auto-optional/branch/main/graph/badge.svg)](
     https://codecov.io/gh/luttik/auto-optional
 )
