@@ -1,3 +1,13 @@
+[![actions batch](https://github.com/luttik/auto-optional/workflows/CI/badge.svg)](
+    https://github.com/Luttik/auto-optional/actions?query=workflow%3ACI+branch%3Amaster
+)
+[![pypi](https://badge.fury.io/py/auto-optional.svg)](
+    https://pypi.org/project/auto-optional/
+)
+[![codecov](https://codecov.io/gh/Luttik/auto-optional/branch/main/graph/badge.svg)](
+    https://codecov.io/gh/luttik/auto-optional
+)
+
 # auto-optional
 Makes typed arguments Optional when the default argument is None.
 
