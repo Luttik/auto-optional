@@ -47,7 +47,7 @@ You can run this with `auto-optional [path]` (path is an optional argument).
 
 For all these points I welcome pull-requests.
 
-- There is no exclude (path patterns) option yet
-- There is no ignore (code line) option yet
+- There is no exclude (for file patterns) option yet
+- There is no ignore (for code lines) option yet
 - Code is aways read and written as `UTF-8` (which is accurate most of the time).
 - There is no `diff` or `check` command yet for a dry-run or linting.
