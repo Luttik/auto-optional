@@ -39,4 +39,4 @@ jobs:
       - name: Publish to pypi
         run: |
           poetry version ${{ steps.get_version.outputs.version-without-v }}
-          poetry publish --build--username "__token__" --password "${{ secrets.PYPI_TOKEN }}"
+          poetry publish --build --username "__token__" --password "${{ secrets.PYPI_TOKEN }}"
