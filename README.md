@@ -18,7 +18,7 @@ def foo(bar: Optional[str] = None):
 ## Install
 Install with `pip install auto-optional`.
 
-## run
+## Run
 You can run this with `auto-optional [path]` (path is an optional argument).
 
 ## Properties
