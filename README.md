@@ -33,3 +33,4 @@ For all these points I welcome pull-requests.
 - There is no exclude (path patterns) option yet
 - There is no ignore (code line) option yet
 - Code is aways read and written as `UTF-8` (which is accurate most of the time).
+- There is no `diff` or `check` command yet for a dry-run or linting.
