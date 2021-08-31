@@ -10,6 +10,9 @@ https://pypi.org/project/auto-optional/
 [![codecov](https://codecov.io/gh/Luttik/auto-optional/branch/main/graph/badge.svg)](
     https://codecov.io/gh/luttik/auto-optional
 )
+[![license](https://shields.io/github/license/luttik/auto-optional)](
+    https://github.com/Luttik/auto-optional/blob/main/LICENSE
+)
 
 # auto-optional
 Makes typed arguments Optional when the default argument is None.
