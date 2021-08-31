@@ -24,7 +24,6 @@ You can run this with `auto-optional [path]` (path is an optional argument).
 ## Properties
 
 - Existing imports are reused.
-- 
 - `import as` statements are properly handled.
 
 ## Things of note
