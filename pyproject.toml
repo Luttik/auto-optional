@@ -26,6 +26,8 @@ flake8-black = "^0.2.3"
 flake8-isort = "^4.0.0"
 pytest-cov = "^2.12.1"
 codecov = "^2.1.12"
+mkdocs = "^1.2.2"
+mkdocs-material = "^7.2.6"
 
 [tool.coverage.paths]
 source = ["src", "*/site-packages"]
