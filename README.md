@@ -1,22 +1,41 @@
-[![actions batch](https://github.com/luttik/auto-optional/workflows/CI/badge.svg)](
-    https://github.com/Luttik/auto-optional/actions?query=workflow%3ACI+branch%3Amaster
-)
-[![pypi](https://badge.fury.io/py/auto-optional.svg)](
-    https://pypi.org/project/auto-optional/
-)
-[![python versions](https://shields.io/pypi/pyversions/auto-optional)](
-https://pypi.org/project/auto-optional/
-)
-[![codecov](https://codecov.io/gh/Luttik/auto-optional/branch/main/graph/badge.svg)](
-    https://codecov.io/gh/luttik/auto-optional
-)
-[![License: MIT](https://shields.io/github/license/luttik/auto-optional)](
-    https://github.com/Luttik/auto-optional/blob/main/LICENSE
-)
-[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+<img src="auto-optional.daanluttik.nl/assets/images/logo-with-text.svg" style="width: 100%; margin: 32pt 0" alt="Logo">
 
-# auto-optional
-Makes typed arguments Optional when the default argument is None.
+
+<div style="text-align: center; font-style: italic; margin: 32pt 0">
+    auto-optional: Makes typed arguments Optional when the default argument is None.
+</div>
+
+<div style="text-align: center; margin: 32pt 0">
+    <a href="https://github.com/Luttik/auto-optional/actions?query=workflow%3ACI+branch%3Amaster">
+        <img src="https://github.com/luttik/auto-optional/workflows/CI/badge.svg" alt="actions batch">
+    </a>
+    <a href="https://pypi.org/project/auto-optional/">
+        <img src="https://badge.fury.io/py/auto-optional.svg" alt="pypi">
+    </a>
+    <a href="https://pypi.org/project/auto-optional/">
+        <img src="https://shields.io/pypi/pyversions/auto-optional" alt="python versions">
+    </a>
+    <a href="https://codecov.io/gh/luttik/auto-optional">
+        <img src="https://codecov.io/gh/Luttik/auto-optional/branch/main/graph/badge.svg" alt="codecov">
+    </a>
+    <a href="https://github.com/Luttik/auto-optional/blob/main/LICENSE">
+        <img src="https://shields.io/github/license/luttik/auto-optional" alt="License: MIT">
+    </a>
+    <a href="https://github.com/psf/black">
+        <img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Code style: black">
+    </a>
+</div>
+
+---
+
+**Documentation**: [auto-optional.daanluttik.nl](auto-optional.daanluttik.nl)
+
+**Source Code**: [https://github.com/luttik/auto-optional](https://github.com/Luttik/auto-optional) 
+
+---
+
+# Purpose
+The basic purpose of auto-optional is ensuring that whenever a default argument is `None` the type annotation is Optional.
 
 For example:
 ```py
@@ -36,7 +55,7 @@ def foo(bar: Optional[str] = None):
 Install with `pip install auto-optional`.
 
 ## Run
-You can run this with `auto-optional [path]` (path is an optional argument).
+After installing you can run auto-optional using `auto-optional [path]` (path is an optional argument).
 
 ## Properties
 
