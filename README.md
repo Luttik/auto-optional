@@ -1,11 +1,11 @@
-<img src="https://auto-optional.daanluttik.nl/assets/images/logo-with-text.svg" style="width: 100%; margin: 32pt 0" alt="Logo">
+<img src="https://github.com/Luttik/auto-optional/blob/main/docs/assets/images/logo-with-text.svg" style="width: 100%; margin: 32pt 0" alt="Logo">
 
 
-<div style="text-align: center; font-style: italic; margin: 32pt 0">
+<p align="center">
     auto-optional: Makes typed arguments Optional when the default argument is None.
-</div>
+</p>
 
-<div style="text-align: center; margin: 32pt 0">
+<p align="center">
     <a href="https://github.com/Luttik/auto-optional/actions?query=workflow%3ACI+branch%3Amaster">
         <img src="https://github.com/luttik/auto-optional/workflows/CI/badge.svg" alt="actions batch">
     </a>
@@ -24,7 +24,7 @@
     <a href="https://github.com/psf/black">
         <img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Code style: black">
     </a>
-</div>
+</p>
 
 ---
 
