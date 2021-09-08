@@ -1,4 +1,4 @@
-<img src="auto-optional.daanluttik.nl/assets/images/logo-with-text.svg" style="width: 100%; margin: 32pt 0" alt="Logo">
+<img src="https://auto-optional.daanluttik.nl/assets/images/logo-with-text.svg" style="width: 100%; margin: 32pt 0" alt="Logo">
 
 
 <div style="text-align: center; font-style: italic; margin: 32pt 0">
