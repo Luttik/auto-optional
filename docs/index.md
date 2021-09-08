@@ -1,4 +1,4 @@
-<img src="auto-optional.daanluttik.nl/assets/images/logo-with-text.svg" style="width: 100%; margin: 32pt 0" alt="Logo">
+<img src="/assets/images/logo-with-text.svg" style="width: 100%; margin: 32pt 0" alt="Logo">
 
 
 <div style="text-align: center; font-style: italic; margin: 32pt 0">
@@ -66,7 +66,7 @@ After installing you can run auto-optional using `auto-optional [path]` (path is
 
 For all these points I welcome pull-requests.
 
-- There is no exclude (for file patterns) option yet
-- There is no ignore (for code lines) option yet
+- There is no exclude (path patterns) option yet
+- There is no ignore (code line) option yet
 - Code is aways read and written as `UTF-8` (which is accurate most of the time).
 - There is no `diff` or `check` command yet for a dry-run or linting.

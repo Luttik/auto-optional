@@ -1,0 +1,32 @@
+site_name: auto-optional
+site_url: https://auto-optional.daanluttik.nl/
+theme:
+  name: material
+  icon:
+    repo: fontawesome/brands/github
+  font:
+    text: inter
+    code: JetBrains+Mono
+  favicon: assets/images/favicon.png
+  logo: assets/images/logo-shape-white.svg
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+
+extra_css:
+  - stylesheets/extra-style.css
+
+markdown_extensions:
+  - pymdownx.highlight
+  - pymdownx.superfences
+
+repo_name: luttik/auto-optional
+repo_url: https://github.com/luttik/auto-optional
