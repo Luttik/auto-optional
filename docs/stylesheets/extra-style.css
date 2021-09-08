@@ -1,0 +1,15 @@
+:root {
+    --md-primary-fg-color: #2678AC;
+    --md-primary-fg-color--light: #2678AC;
+    --md-primary-fg-color--dark:  #58C5FF;
+}
+
+.md-footer, .md-footer-copyright {
+    display: none;
+}
+
+/*
+.md-typeset h1, .md-typeset h2, .md-typeset h3, .md-typeset  h4 {
+    font-weight: bold;
+}
+ */

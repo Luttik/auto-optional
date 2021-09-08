@@ -40,3 +40,13 @@ jobs:
         run: |
           poetry version ${{ steps.get_version.outputs.version-without-v }}
           poetry publish --build --username "__token__" --password "${{ secrets.PYPI_TOKEN }}"
+      - name: Upload Python resources to release
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: dist/*
+          tag: ${{ github.ref }}
+          file_glob: true
+      - name: Update docs
+        run: |
+          mkdocs gh-deploy --force
