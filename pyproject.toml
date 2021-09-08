@@ -5,6 +5,8 @@ description = "Makes typed arguments Optional when the default argument is None"
 authors = ["Luttik <dtluttik@gmail.com>"]
 readme = "README.md"
 repository = "https://github.com/Luttik/auto-optional"
+homepage = "auto-optional.daanluttik.nl"
+documentation = "auto-optional.daanluttik.nl"
 
 [tool.poetry.scripts]
 auto-optional = "auto_optional.main:app"
