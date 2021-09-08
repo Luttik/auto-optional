@@ -28,9 +28,9 @@
 
 ---
 
-**Documentation**: [auto-optional.daanluttik.nl](auto-optional.daanluttik.nl)
+**Documentation**: [auto-optional.daanluttik.nl](https://auto-optional.daanluttik.nl)
 
-**Source Code**: [https://github.com/luttik/auto-optional](https://github.com/Luttik/auto-optional) 
+**Source Code**: [github.com/luttik/auto-optional](https://github.com/Luttik/auto-optional) 
 
 ---
 
