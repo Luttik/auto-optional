@@ -1,4 +1,4 @@
-<img src="https://github.com/Luttik/auto-optional/blob/main/docs/assets/images/logo-with-text.svg" style="width: 100%; margin: 32pt 0" alt="Logo">
+<img src="https://raw.githubusercontent.com/Luttik/auto-optional/main/docs/assets/images/logo-with-text.svg" style="width: 100%; margin: 32pt 0" alt="Logo">
 
 
 <p align="center">
