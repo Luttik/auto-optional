@@ -3,7 +3,7 @@
 
 
 <p align="center">
-    auto-optional: Makes typed arguments Optional when the default argument is None.
+    auto-optional: adds the Optional type-hint to arguments where the default value is None
 </p>
 
 <p align="center">

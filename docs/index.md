@@ -3,7 +3,7 @@
 
 
 <p align="center">
-    auto-optional: Makes typed arguments Optional when the default argument is None.
+    auto-optional: adds the Optional type-hint to arguments where the default value is None
 </p>
 
 <p align="center">
@@ -35,7 +35,7 @@
 
 ---
 
-## What does auto-optional do?
+## What does auto-optional do
 The basic purpose of auto-optional is ensuring that whenever a default argument is `None` the type annotation is Optional.
 
 For example:
