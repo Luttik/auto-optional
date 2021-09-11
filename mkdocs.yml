@@ -27,6 +27,9 @@ extra_css:
 markdown_extensions:
   - pymdownx.highlight
   - pymdownx.superfences
+  - toc:
+      permalink: true
 
 repo_name: luttik/auto-optional
 repo_url: https://github.com/luttik/auto-optional
+edit_uri: edit/main/docs/

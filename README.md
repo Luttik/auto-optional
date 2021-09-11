@@ -1,3 +1,4 @@
+# Auto-optional
 <img src="https://raw.githubusercontent.com/Luttik/auto-optional/main/docs/assets/images/logo-with-text.svg" style="width: 100%; margin: 32pt 0" alt="Logo">
 
 
@@ -34,7 +35,7 @@
 
 ---
 
-# What does auto-optional do?
+## What does auto-optional do?
 The basic purpose of auto-optional is ensuring that whenever a default argument is `None` the type annotation is Optional.
 
 For example:
@@ -51,7 +52,7 @@ def foo(bar: Optional[str] = None):
     ...
 ```
 
-# Why would you want this
+## Why would you want this
 
 - Easily modify external libraries that didn't pay attention 
   to proper use of optional to improve mypy linting.
@@ -64,16 +65,17 @@ Install with `pip install auto-optional`.
 ## Run
 After installing you can run auto-optional using `auto-optional [path]` (path is an optional argument).
 
-## Properties
+## Things of note
+
+### Things that are handled well
 
 - Existing imports are reused.
 - `import as` statements are properly handled.
 
-## Things of note
-
+### Things that need improvement
 For all these points you can leave a thumbs-up if you want it. Also, I welcome pull-requests for these issues.
 
 - There is no exclude (for file patterns) option yet [[#2]](https://github.com/Luttik/auto-optional/issues/2)
 - There is no ignore (for code lines) option yet [[#3]](https://github.com/Luttik/auto-optional/issues/3)
-- Code is aways read and written as `UTF-8` (which is accurate most of the time). [[#4](https://github.com/Luttik/auto-optional/issues/4)]
-- There is no `diff` or `check` command yet for a dry-run or linting. [[#5](https://github.com/Luttik/auto-optional/issues/5)]
+- Code is aways read and written as `UTF-8` (which is accurate most of the time). [[#4]](https://github.com/Luttik/auto-optional/issues/4)
+- There is no `diff` or `check` command yet for a dry-run or linting. [[#5]](https://github.com/Luttik/auto-optional/issues/5)
