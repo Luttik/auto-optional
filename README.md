@@ -35,7 +35,7 @@
 
 ---
 
-## What does auto-optional do?
+## What does auto-optional do
 The basic purpose of auto-optional is ensuring that whenever a default argument is `None` the type annotation is Optional.
 
 For example:
