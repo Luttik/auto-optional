@@ -1,11 +1,11 @@
-<img src="/assets/images/logo-with-text.svg" style="width: 100%; margin: 32pt 0" alt="Logo">
+<img src="https://raw.githubusercontent.com/Luttik/auto-optional/main/docs/assets/images/logo-with-text.svg" style="width: 100%; margin: 32pt 0" alt="Logo">
 
 
-<div style="text-align: center; font-style: italic; margin: 32pt 0">
+<p align="center">
     auto-optional: Makes typed arguments Optional when the default argument is None.
-</div>
+</p>
 
-<div style="text-align: center; margin: 32pt 0">
+<p align="center">
     <a href="https://github.com/Luttik/auto-optional/actions?query=workflow%3ACI+branch%3Amaster">
         <img src="https://github.com/luttik/auto-optional/workflows/CI/badge.svg" alt="actions batch">
     </a>
@@ -24,17 +24,17 @@
     <a href="https://github.com/psf/black">
         <img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Code style: black">
     </a>
-</div>
+</p>
 
 ---
 
-**Documentation**: [auto-optional.daanluttik.nl](auto-optional.daanluttik.nl)
+**Documentation**: [auto-optional.daanluttik.nl](https://auto-optional.daanluttik.nl)
 
-**Source Code**: [https://github.com/luttik/auto-optional](https://github.com/Luttik/auto-optional) 
+**Source Code**: [github.com/luttik/auto-optional](https://github.com/Luttik/auto-optional) 
 
 ---
 
-# Purpose
+# What does auto-optional do?
 The basic purpose of auto-optional is ensuring that whenever a default argument is `None` the type annotation is Optional.
 
 For example:
@@ -51,6 +51,13 @@ def foo(bar: Optional[str] = None):
     ...
 ```
 
+# Why would you want this
+
+- Easily modify external libraries that didn't pay attention 
+  to proper use of optional to improve mypy linting.
+- Force consistency in your own code-base: 
+  Enforcing that `None` parameter implies an `Optional` type. 
+
 ## Install
 Install with `pip install auto-optional`.
 
@@ -64,9 +71,9 @@ After installing you can run auto-optional using `auto-optional [path]` (path is
 
 ## Things of note
 
-For all these points I welcome pull-requests.
+For all these points you can leave a thumbs-up if you want it. Also, I welcome pull-requests for these issues.
 
-- There is no exclude (path patterns) option yet
-- There is no ignore (code line) option yet
-- Code is aways read and written as `UTF-8` (which is accurate most of the time).
-- There is no `diff` or `check` command yet for a dry-run or linting.
+- There is no exclude (for file patterns) option yet [[#2]](https://github.com/Luttik/auto-optional/issues/2)
+- There is no ignore (for code lines) option yet [[#3]](https://github.com/Luttik/auto-optional/issues/3)
+- Code is aways read and written as `UTF-8` (which is accurate most of the time). [[#4](https://github.com/Luttik/auto-optional/issues/4)]
+- There is no `diff` or `check` command yet for a dry-run or linting. [[#5](https://github.com/Luttik/auto-optional/issues/5)]
