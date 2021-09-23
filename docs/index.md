@@ -1,5 +1,5 @@
 # Auto-optional
-<img src="/assets/images/logo-with-text.svg" style="width: 100%; margin: 32pt 0" alt="Logo">
+<img src="https://raw.githubusercontent.com/Luttik/auto-optional/main/docs/assets/images/logo-with-text.svg" style="width: 100%; margin: 32pt 0" alt="Logo">
 
 
 <p align="center">
@@ -31,7 +31,7 @@
 
 **Documentation**: [auto-optional.daanluttik.nl](https://auto-optional.daanluttik.nl)
 
-**Source Code**: [github.com/luttik/auto-optional](https://github.com/Luttik/auto-optional)
+**Source Code**: [github.com/luttik/auto-optional](https://github.com/Luttik/auto-optional) 
 
 ---
 
@@ -54,10 +54,19 @@ def foo(bar: Optional[str] = None):
 
 ## Why would you want this
 
-- Easily modify external libraries that didn't pay attention
+- Easily modify external libraries that didn't pay attention 
   to proper use of optional to improve mypy linting.
-- Force consistency in your own code-base:
-  Enforcing that `None` parameter implies an `Optional` type.
+- Force consistency in your own code-base: 
+  Enforcing that `None` parameter implies an `Optional` type. 
+- Explicit is better than implicit — [pep 20](https://www.python.org/dev/peps/pep-0020/)
+
+## In the media:
+auto-optional was covered on 
+[PythonBytes #251](https://pythonbytes.fm/episodes/show/251/a-95-complete-episode-wait-for-it)
+
+> I love these little tools that you can run against your code that will just reformat them to be better.
+>
+> — Michael Kennedy
 
 ## Install
 Install with `pip install auto-optional`.
