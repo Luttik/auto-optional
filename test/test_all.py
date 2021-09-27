@@ -1,139 +1,59 @@
+from pathlib import Path
+from typing import List, Union
+
+import pytest
+from pydantic import BaseModel
+from yaml import load
+
 from auto_optional.convert import convert_file
 
-
-def test_simple_change() -> None:
-    before = """
-def bla(foo: str = None):
-    ...
-    """
-    after = """
-from typing import Optional
-def bla(foo: Optional[str] = None):
-    ...
-    """
-    assert convert_file(before) == after
+try:
+    from yaml import CLoader as YamlLoader
+except ImportError:
+    from yaml import YamlLoader
 
 
-def test_simple_change_already_imported() -> None:
-    before = """
-from typing import Optional
-def bla(foo: str = None):
-    ...
-    """
-    after = """
-from typing import Optional
-def bla(foo: Optional[str] = None):
-    ...
-    """
-    assert convert_file(before) == after
+class BaseTestConfig(BaseModel):
+    name: str
 
 
-def test_simple_change_star_import() -> None:
-    before = """
-from typing import *
-def bla(foo: str = None):
-    ...
-    """
-    after = """
-from typing import *
-def bla(foo: Optional[str] = None):
-    ...
-    """
-    assert convert_file(before) == after
+class BeforeAndAfterTest(BaseTestConfig):
+    before: str
+    after: str
 
 
-def test_simple_change_already_imported_optional_as() -> None:
-    before = """\
-from typing import Optional as O
-def bla(foo: str = None):
-    ...
-    """
-    after = """\
-from typing import Optional as O
-def bla(foo: O[str] = None):
-    ...
-    """
-    assert convert_file(before) == after
+class UnchangedTest(BaseTestConfig):
+    unchanged: str
 
 
-def test_nested_change() -> None:
-    before = """\
-def bla(foo: Tuple[str] = None):
-    ...
-    """
-    after = """\
-from typing import Optional
-def bla(foo: Optional[Tuple[str]] = None):
-    ...
-    """
-    assert convert_file(before) == after
+class SimpleTestConfig(BaseModel):
+    tests: List[Union[BeforeAndAfterTest, UnchangedTest]]
 
 
-def test_not_optional() -> None:
-    before = """\
-def bla(foo: str = 'a'):
-    ...
-    """
-    assert convert_file(before) == before
+def get_singe_file_tests() -> List:
+    with (Path(__file__).parent / "simple-tests.yaml").open() as file:
+        return SimpleTestConfig(
+            **load(
+                file,
+                Loader=YamlLoader,
+            )
+        ).tests
 
 
-def test_nochange() -> None:
-    before = """\
-from typing import Optional
-def bla(foo: Optional[str] = None):
-    ...
-    """
-    assert convert_file(before) == before
+SINGLE_FILE_TESTS = get_singe_file_tests()
 
 
-def test_legal_no_type() -> None:
-    before = """
-class Bloep:
-    def bla(self):
-        ...
-    """
-    assert convert_file(before) == before
-
-
-def test_nochange_typing_import() -> None:
-    before = """
-from typing import Optional
-def bla(foo: Optional[str] = None):
-    ...
-    """
-    assert convert_file(before) == before
-
-
-def test_nochange_renamed_typing() -> None:
-    before = """\
-import typing
-import typing as t
-def bla(foo: t.Optional[str] = None):
-    ...
-    """
-    assert convert_file(before) == before
-
-
-def test_prioritise_from_import() -> None:
-    before = """\
-import typing
-from typing import Optional
-def bla(foo: str = None):
-    ...
-    """
-    after = """\
-import typing
-from typing import Optional
-def bla(foo: Optional[str] = None):
-    ...
-    """
-    assert convert_file(before) == after
-
-
-def test_nochange_typing_as_import() -> None:
-    before = """\
-import typing as t
-def bla(foo: t.Optional[str] = None):
-    ...
-    """
-    assert convert_file(before) == before
+@pytest.mark.parametrize(
+    "test_config",
+    SINGLE_FILE_TESTS,
+    ids=[test.name for test in SINGLE_FILE_TESTS],
+)
+def test_single_files_from_yaml(test_config):
+    if isinstance(test_config, BeforeAndAfterTest):
+        assert convert_file(test_config.before) == test_config.after
+    elif isinstance(test_config, UnchangedTest):
+        assert convert_file(test_config.unchanged) == test_config.unchanged
+    else:
+        raise NotImplementedError(
+            f"tests of type {type(test_config)} are not yet supported"
+        )
