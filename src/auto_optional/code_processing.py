@@ -1,53 +1,12 @@
-from pathlib import Path
-
 import libcst as cst
 import libcst.matchers as m
 
-
-def convert_path(path: Path) -> int:
-    """
-    Converts all files in the Path.
-
-    :return: The amount of changed files.
-    """
-    changed_files = 0
-
-    files = []
-
-    if path.is_file():
-        files.append(path)
-    else:
-        files.extend(path.glob("**/*.py"))
-
-    for file_path in files:
-        print(f"Reading file: {file_path}")
-        with open(file_path, "r", encoding="utf-8") as file:
-            old = file.read()
-            new = convert_file(old)
-
-        with open(file_path, "w", encoding="utf-8") as file:
-            file.write(new)
-            if old != new:
-                changed_files += 1
-
-    return changed_files
-
-
-def convert_file(py_source: str) -> str:
-    source_tree = cst.parse_module(py_source)
-    modified_tree = source_tree.visit(AutoOptionalTransformer())
-    return modified_tree.code
-
-
-class BestFirstList(list):
-    def append(self, x: cst.CSTNode) -> None:
-        if self and isinstance(x, cst.Name) and isinstance(self[0], cst.Attribute):
-            super().insert(0, x)
-
-        return super().append(x)
+from auto_optional.data_structures import BestFirstList
 
 
 class AutoOptionalTransformer(cst.CSTTransformer):
+    METADATA_DEPENDENCIES = (cst.metadata.QualifiedNameProvider, )
+
     def __init__(self) -> None:
         super().__init__()
         # Will be a list of all existing import statements that references
@@ -146,6 +105,19 @@ class AutoOptionalTransformer(cst.CSTTransformer):
             if updated_node.default and m.matches(updated_node.default, m.Name("None")):
                 if not self.optional_import_names:
                     self.optional_import_names.append(cst.Name("Optional"))
+
+                # Also allow Union
+                if (
+                    cst.ensure_type(
+                        cst.ensure_type(annotation, cst.Subscript).value, cst.Attribute
+                    ).attr.value
+                    == "Union"
+                ):
+                    metadata = self.get_metadata(
+                        cst.metadata.QualifiedNameProvider,
+                        updated_node,
+                    )
+                    print("metadata")
 
                 if not (
                     isinstance(annotation, cst.Subscript)
