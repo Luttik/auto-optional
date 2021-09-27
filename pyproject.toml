@@ -30,6 +30,8 @@ pytest-cov = "^2.12.1"
 codecov = "^2.1.12"
 mkdocs = "^1.2.2"
 mkdocs-material = "^7.2.6"
+PyYAML = "^5.4.1"
+pydantic = "^1.8.2"
 
 [tool.coverage.paths]
 source = ["src", "*/site-packages"]
