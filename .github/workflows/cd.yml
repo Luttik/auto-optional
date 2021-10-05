@@ -32,10 +32,10 @@ jobs:
           poetry install
       - name: Lint with flake8
         run: |
-          flake8 .
+          inv lint
       - name: Test with pytest
         run: |
-          pytest
+          inv test
       - name: Publish to pypi
         run: |
           poetry version ${{ steps.get_version.outputs.version-without-v }}
