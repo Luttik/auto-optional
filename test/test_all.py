@@ -1,3 +1,4 @@
+from abc import ABC
 from pathlib import Path
 from typing import List, Union
 
@@ -5,7 +6,7 @@ import pytest
 from pydantic import BaseModel
 from yaml import load
 
-from auto_optional.convert import convert_file
+from auto_optional.file_handling import convert_file
 
 try:
     from yaml import CLoader as YamlLoader
@@ -13,7 +14,7 @@ except ImportError:
     from yaml import YamlLoader  # type: ignore
 
 
-class BaseTestConfig(BaseModel):
+class BaseTestConfig(BaseModel, ABC):
     name: str
 
 

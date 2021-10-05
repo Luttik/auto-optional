@@ -99,3 +99,30 @@ tests:
       import typing as t
       def bla(foo: t.Optional[str] = None):
           ...
+
+  - name: test_accept_union_none_from_import
+    unchanged: |
+      import typing as t
+      def bla(foo: t.Union[str, None] = None):
+          ...
+
+  - name: test_accept_union_none
+    unchanged: |
+      from typing import Union
+      def bla(foo: Union[str, None] = None):
+          ...
+
+  - name: test_py10_syntax
+    unchanged: |
+      def bla(foo: str | None = None):
+          ...
+
+  - name: test_py10_syntax_extra_left
+    unchanged: |
+      def bla(foo: str | None | int = None):
+          ...
+
+  - name: test_py10_syntax_extra_right
+    unchanged: |
+      def bla(foo: str | int | None = None):
+          ...

@@ -2,7 +2,7 @@ from pathlib import Path
 
 import typer
 
-from auto_optional.convert import convert_path
+from auto_optional.file_handling import convert_path
 
 app = typer.Typer()
 
