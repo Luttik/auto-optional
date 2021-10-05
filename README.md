@@ -78,8 +78,11 @@ After installing you can run auto-optional using `auto-optional [path]` (path is
 
 ### Things that are handled well
 
+- The alternatives to `Optional` are supported, that means both;
+    - `Union[X, None]`
+    - `x | None` (allowed since python 10+).
 - Existing imports are reused.
-- `import as` statements are properly handled.
+    - `import as` and `from typing import ...` statements are properly handled.
 
 ### Things that need improvement
 For all these points you can leave a thumbs-up if you want it. Also, I welcome pull-requests for these issues.
