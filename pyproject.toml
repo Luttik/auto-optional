@@ -32,6 +32,7 @@ mkdocs = "^1.2.2"
 mkdocs-material = "^7.2.6"
 PyYAML = "^5.4.1"
 pydantic = "^1.8.2"
+types-PyYAML = "^5.4.10"
 
 [tool.coverage.paths]
 source = ["src", "*/site-packages"]
