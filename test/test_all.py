@@ -10,7 +10,7 @@ from auto_optional.convert import convert_file
 try:
     from yaml import CLoader as YamlLoader
 except ImportError:
-    from yaml import YamlLoader
+    from yaml import YamlLoader  # type: ignore
 
 
 class BaseTestConfig(BaseModel):
@@ -48,7 +48,9 @@ SINGLE_FILE_TESTS = get_singe_file_tests()
     SINGLE_FILE_TESTS,
     ids=[test.name for test in SINGLE_FILE_TESTS],
 )
-def test_single_files_from_yaml(test_config):
+def test_single_files_from_yaml(
+    test_config: Union[BeforeAndAfterTest, UnchangedTest]
+) -> None:
     if isinstance(test_config, BeforeAndAfterTest):
         assert convert_file(test_config.before) == test_config.after
     elif isinstance(test_config, UnchangedTest):
