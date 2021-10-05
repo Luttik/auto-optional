@@ -14,6 +14,6 @@ isort = simple_task("isort", "isort .")
 format = simple_task("format", "inv black isort")
 
 flake8 = simple_task("flake8", "flake8")
-mypy = simple_task("mypy", "mypy .")
+mypy = simple_task("mypy", "mypy src test --namespace-packages")
 lint = simple_task("lint", "inv flake8 mypy")
 test = simple_task("test", "pytest --cov")
