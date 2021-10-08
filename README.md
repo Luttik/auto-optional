@@ -74,6 +74,19 @@ Install with `pip install auto-optional`.
 ## Run
 After installing you can run auto-optional using `auto-optional [path]` (path is an optional argument).
 
+## pre-commit
+
+You can run auto-optional via [pre-commit](https://pre-commit.com/).
+Add the following text to your repositories `.pre-commit-config.yaml`:
+
+```yaml
+repos:
+- repo: https://github.com/luttik/auto-optional
+  rev: v0.2.0 # The version of auto-optional to use
+  hooks:
+  - id: auto-optional
+```
+
 ## Things of note
 
 ### Things that are handled well
