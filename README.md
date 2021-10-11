@@ -93,7 +93,7 @@ repos:
 
 - The alternatives to `Optional` are supported, that means both;
     - `Union[X, None]`
-    - `x | None` (allowed since python 10+).
+    - `x | None` (allowed since python 3.10+).
 - Existing imports are reused.
     - `import as` and `from typing import ...` statements are properly handled.
 
