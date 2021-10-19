@@ -6,6 +6,7 @@
     --md-accent-fg-color: #07a;
     --md-typeset-color: #000;
     --md-typeset-a-color: #07a;
+    --md-inline-code-fg-color: #dd4a68;
 }
 
 [data-md-color-scheme="slate"] {
@@ -14,9 +15,22 @@
     --md-code-fg-color: #fff;
     --md-typeset-color: #fff;
     --md-primary-bg-color: #fff;
-    --md-accent-fg-color--dark: #3ac5ff;
+    --md-accent-fg-color: #3ac5ff;
     --md-typeset-a-color: #3ac5ff;
     --md-code-bg-color: #151517;
+    --md-inline-code-fg-color: #dd4a68;
+}
+
+svg {
+    shape-rendering: geometricPrecision;
+}
+
+
+.md-typeset code {
+    color: var(--md-inline-code-fg-color);
+    border-radius: 6pt;
+    padding: 4pt 6pt;
+    font-size: .8em;
 }
 
 .md-typeset blockquote {
@@ -42,6 +56,10 @@ b, strong {
 
 body[data-md-color-scheme="default"] .md-header__button.md-logo img {
     filter: invert(1);
+}
+
+[data-md-color-scheme="default"] .md-header img {
+    rgba(var(--md-primary-bg-color), .7)
 }
 
 .md-header .md-search__form {
