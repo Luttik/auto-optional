@@ -1,15 +1,89 @@
-:root {
-    --md-primary-fg-color: #2678AC;
-    --md-primary-fg-color--light: #2678AC;
-    --md-primary-fg-color--dark:  #58C5FF;
+:root [data-md-color-scheme="default"] {
+    --md-primary-fg-color: #fff;
+    --md-default-bg-color: #fff;
+    --md-code-fg-color: #000;
+    --md-primary-bg-color: #000;
+    --md-accent-fg-color: #07a;
+    --md-typeset-color: #000;
+    --md-typeset-a-color: #07a;
+    --md-inline-code-fg-color: #dd4a68;
+}
+
+[data-md-color-scheme="slate"] {
+    --md-primary-fg-color: #202124;
+    --md-default-bg-color: #202124;
+    --md-code-fg-color: #fff;
+    --md-typeset-color: #fff;
+    --md-primary-bg-color: #fff;
+    --md-accent-fg-color: #3ac5ff;
+    --md-typeset-a-color: #3ac5ff;
+    --md-code-bg-color: #151517;
+    --md-inline-code-fg-color: #dd4a68;
+}
+
+svg {
+    shape-rendering: geometricPrecision;
+}
+
+
+.md-typeset code {
+    color: var(--md-inline-code-fg-color);
+    border-radius: 6pt;
+    padding: 4pt 6pt;
+    font-size: .8em;
+}
+
+.md-typeset blockquote {
+    color: var(--md-typeset-color);
+    border-left-color: var(--md-accent-fg-color);
 }
 
 .md-footer, .md-footer-copyright {
     display: none;
 }
 
-/*
-.md-typeset h1, .md-typeset h2, .md-typeset h3, .md-typeset  h4 {
-    font-weight: bold;
+.md-typeset {
+    line-height: 2em;
 }
- */
+
+b, strong {
+    font-weight: 600;
+}
+
+.md-header {
+    box-shadow: 0 0.2rem 0.4rem rgba(0, 0, 0, 0.1) !important;
+}
+
+body[data-md-color-scheme="default"] .md-header__button.md-logo img {
+    filter: invert(1);
+}
+
+[data-md-color-scheme="default"] .md-header img {
+    rgba(var(--md-primary-bg-color), .7)
+}
+
+.md-header .md-search__form {
+    background-color: rgba(0, 0, 0, .05);
+}
+
+.md-header .md-search .md-search__input, .md-header .md-search .md-search__icon {
+    color: var(--md-code-fg-color);
+}
+
+.md-header .md-search .md-search__input::placeholder {
+    color: rgba(var(--md-typeset-color), .4)
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    line-height: 1.5em;
+    margin-block-start: 1.75em;
+    margin-block-end: 0.5em;
+    color: var(--md-typeset-color) !important;
+    font-weight: bold !important;
+}

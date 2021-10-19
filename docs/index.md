@@ -1,4 +1,9 @@
-# Auto-optional
+---
+hide:
+  - navigation
+---
+
+# auto-optional
 <img src="/assets/images/logo-with-text.svg" style="width: 100%; margin: 32pt 0" alt="Logo">
 
 
