@@ -1,4 +1,4 @@
-# Auto-optional
+# auto-optional
 <img src="https://raw.githubusercontent.com/Luttik/auto-optional/main/docs/assets/images/logo-with-text.svg" style="width: 100%; margin: 32pt 0" alt="Logo">
 
 
