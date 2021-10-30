@@ -1,0 +1,10 @@
+repos:
+  - repo: local
+    hooks:
+        - id: auto-optional
+          name: auto-optional
+          description: Adds the Optional type-hint to arguments where the default value is None
+          entry: auto-optional
+          require_serial: True
+          language: system
+          types: [ python ]
