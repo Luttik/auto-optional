@@ -1,4 +1,5 @@
 from pathlib import Path
+from typing import List
 
 import typer
 
@@ -8,8 +9,10 @@ app = typer.Typer()
 
 
 @app.command()
-def main(path: Path = typer.Argument(".")) -> None:
-    converted_files = convert_path(path)
+def main(path: List[Path] = typer.Argument(None)) -> None:
+    if not path:
+        path = [Path(".")]
+    converted_files = sum(convert_path(p) for p in path)
     if converted_files:
         typer.echo(f"{converted_files} were fixed.")
     else:
