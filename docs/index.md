@@ -77,7 +77,8 @@ auto-optional was covered on
 Install with `pip install auto-optional`.
 
 ## Run
-After installing you can run auto-optional using `auto-optional [path]` (path is an optional argument).
+After installing you can run auto-optional using`auto-optional [paths...]` 
+(if no path is provided it'll process the current working directory).
 
 ## pre-commit
 

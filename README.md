@@ -55,7 +55,7 @@ def foo(bar: Optional[str] = None):
 ## Why would you want this
 
 - Easily modify external libraries that didn't pay attention 
-  to proper use of optional to improve mypy linting.
+  to proper use of optional to improve mypy lintingf.
 - Force consistency in your own code-base: 
   Enforcing that `None` parameter implies an `Optional` type. 
 - Explicit is better than implicit — [pep 20](https://www.python.org/dev/peps/pep-0020/)
@@ -72,7 +72,8 @@ auto-optional was covered on
 Install with `pip install auto-optional`.
 
 ## Run
-After installing you can run auto-optional using `auto-optional [path]` (path is an optional argument).
+After installing you can run auto-optional using `auto-optional [paths...]`
+(if no path is provided it'll process the current working directory).
 
 ## pre-commit
 
