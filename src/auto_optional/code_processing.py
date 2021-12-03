@@ -99,54 +99,57 @@ class AutoOptionalTransformer(cst.CSTTransformer):
 
         Is only used to add the ``typing.Optional`` import statement when missing.
         """
-        if self.optional_import_checker.import_names and self.optional_import_needed:
-            import_statement = cst.SimpleStatementLine(
-                body=[
-                    cst.ImportFrom(
-                        module=cst.Name(
-                            value="typing",
-                        ),
-                        names=[
-                            cst.ImportAlias(
-                                name=cst.Name(
-                                    value="Optional",
-                                ),
+        if (
+            not self.optional_import_checker.import_names
+            or not self.optional_import_needed
+        ):
+            return updated_node
+        import_statement = cst.SimpleStatementLine(
+            body=[
+                cst.ImportFrom(
+                    module=cst.Name(
+                        value="typing",
+                    ),
+                    names=[
+                        cst.ImportAlias(
+                            name=cst.Name(
+                                value="Optional",
                             ),
-                        ],
-                    )
-                ]
-            )
-            insert_at = 0
-            for index, body_part in enumerate(updated_node.body):
-                if (
-                    isinstance(body_part, cst.SimpleStatementLine)
-                    and len(body_part.children) > 0
-                    and (
-                        (  # module level docstring
-                            index == 0
-                            and m.matches(
-                                body_part.children[0], m.Expr(m.SimpleString())
-                            )
-                        )
-                        or m.matches(  # future import
-                            body_part.children[0],
-                            m.ImportFrom(module=m.Name("__future__")),
+                        ),
+                    ],
+                )
+            ]
+        )
+        insert_at = 0
+        for index, body_part in enumerate(updated_node.body):
+            if (
+                isinstance(body_part, cst.SimpleStatementLine)
+                and len(body_part.children) > 0
+                and (
+                    (  # module level docstring
+                        index == 0
+                        and m.matches(
+                            body_part.children[0], m.Expr(m.SimpleString())
                         )
                     )
-                ):
-                    # module docstring
-                    insert_at += 1
-                    continue
-                if index > 1:
-                    break
-            return updated_node.with_changes(
-                body=[
-                    *updated_node.body[:insert_at],
-                    import_statement,
-                    *updated_node.body[insert_at:],
-                ]
-            )
-        return updated_node
+                    or m.matches(  # future import
+                        body_part.children[0],
+                        m.ImportFrom(module=m.Name("__future__")),
+                    )
+                )
+            ):
+                # module docstring
+                insert_at += 1
+                continue
+            if index > 1:
+                break
+        return updated_node.with_changes(
+            body=[
+                *updated_node.body[:insert_at],
+                import_statement,
+                *updated_node.body[insert_at:],
+            ]
+        )
 
     def __check_if__union_none(self, annotation: cst.BaseExpression) -> bool:
         #  Return if it is a Union[..., None, ...] statement
