@@ -94,6 +94,41 @@ tests:
       def bla(foo: Optional[str] = None):
           ...
 
+  - name: test_with_module_docstring
+    before: |
+      """Something"""
+      def f(s: str = None):
+          ...
+    after: |
+      """Something"""
+      from typing import Optional
+      def f(s: Optional[str] = None):
+          ...
+
+  - name: test_with_future_import
+    before: |
+      from __future__ import annotations
+      def f(s: str = None):
+          ...
+    after: |
+      from __future__ import annotations
+      from typing import Optional
+      def f(s: Optional[str] = None):
+          ...
+
+  - name: test_docstring_with_future_import
+    before: |
+      """Something"""
+      from __future__ import annotations
+      def f(s: str = None):
+          ...
+    after: |
+      """Something"""
+      from __future__ import annotations
+      from typing import Optional
+      def f(s: Optional[str] = None):
+          ...
+
   - name: test_nochange_typing_as_import
     unchanged: |
       import typing as t
