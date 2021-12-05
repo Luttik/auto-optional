@@ -105,7 +105,20 @@ class AutoOptionalTransformer(cst.CSTTransformer):
         ):
             return updated_node
 
-        import_statement = cst.SimpleStatementLine(
+        import_statement = self.__build_import_statement()
+        import_statement_location = self.__find_line_for_optional_import_insertion(
+            updated_node
+        )
+        return updated_node.with_changes(
+            body=[
+                *updated_node.body[:import_statement_location],
+                import_statement,
+                *updated_node.body[import_statement_location:],
+            ]
+        )
+
+    def __build_import_statement(self) -> cst.SimpleStatementLine:
+        return cst.SimpleStatementLine(
             body=[
                 cst.ImportFrom(
                     module=cst.Name(
@@ -121,6 +134,10 @@ class AutoOptionalTransformer(cst.CSTTransformer):
                 )
             ]
         )
+
+    def __find_line_for_optional_import_insertion(
+        self, updated_node: cst.Module
+    ) -> int:
         insert_at = 0
         for index, body_part in enumerate(updated_node.body):
             if (
@@ -139,16 +156,9 @@ class AutoOptionalTransformer(cst.CSTTransformer):
             ):
                 # module docstring
                 insert_at += 1
-                continue
-            if index > 1:
+            elif index > 1:
                 break
-        return updated_node.with_changes(
-            body=[
-                *updated_node.body[:insert_at],
-                import_statement,
-                *updated_node.body[insert_at:],
-            ]
-        )
+        return insert_at
 
     def __check_if__union_none(self, annotation: cst.BaseExpression) -> bool:
         #  Return if it is a Union[..., None, ...] statement
