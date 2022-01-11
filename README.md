@@ -83,7 +83,7 @@ Add the following text to your repositories `.pre-commit-config.yaml`:
 ```yaml
 repos:
 - repo: https://github.com/luttik/auto-optional
-  rev: v0.2.0 # The version of auto-optional to use
+  rev: v0.3.1 # The version of auto-optional to use
   hooks:
   - id: auto-optional
 ```
