@@ -1,0 +1,12 @@
+{
+  "name": "auto-optional-docs",
+  "version": "1.0.0",
+  "description": "Documentation for auto-optional",
+  "scripts": {
+    "build": "mkdocs build",
+    "dev": "mkdocs serve",
+    "deploy": "mkdocs gh-deploy"
+  },
+  "dependencies": {},
+  "devDependencies": {}
+}
