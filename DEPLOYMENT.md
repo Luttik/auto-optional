@@ -15,8 +15,13 @@ The repository is now configured to deploy directly to Vercel with automatic bui
 ### Configuration Files
 - `requirements.txt`: Python dependencies needed for MKdocs
 - `package.json`: Build scripts for Vercel
-- `vercel.json`: Vercel-specific configuration
+- `vercel.json`: Vercel-specific configuration with Python build commands
 - `mkdocs.yml`: MKdocs configuration
+
+### How Vercel Build Works
+1. `installCommand`: Installs Python dependencies from requirements.txt
+2. `buildCommand`: Runs `mkdocs build` to generate static files
+3. `outputDirectory`: Serves files from the generated `site/` directory
 
 ### Automatic Deployments
 - **Production**: Pushes to `main` branch will deploy to production
