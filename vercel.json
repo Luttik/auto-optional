@@ -1,5 +1,5 @@
 {
-  "buildCommand": "pip install -r requirements-docs.txt && mkdocs build",
+  "buildCommand": "uv pip install --system -r requirements-docs.txt && mkdocs build",
   "outputDirectory": "site",
   "installCommand": "echo 'skipping npm install'"
 }
